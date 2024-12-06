@@ -3,6 +3,14 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import ErrorPage from './Pages/ErrorPage.jsx';
 import Login from './Pages/Login.jsx'
+import Home from './Pages/Home.jsx'
+import AddVisa from './Pages/AddVisa.jsx'
+import AllVisa from './Pages/AllVisa.jsx';
+import MyAddedVisa from './Pages/MyAddedVisa.jsx'
+import MyVisaApplications from './Pages/MyVisaApplications.jsx'
+import Register from './Pages/Register.jsx'
+import About from './Pages/About.jsx'
+
 
 import {
   createBrowserRouter,
@@ -16,6 +24,35 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     errorElement:<ErrorPage></ErrorPage>,
     children:[
+      {
+        path:"/",
+        element:<Home></Home>
+      },
+      {
+        path:"/add-visa",
+        element:<AddVisa></AddVisa>
+      },
+      {
+        path:"/all-visas",
+        element:<AllVisa></AllVisa>
+      },
+      {
+        path:"/about",
+        element:<About></About>
+      },
+      
+      {
+        path:"/my-added-visa",
+        element:<MyAddedVisa></MyAddedVisa>
+      },
+      {
+        path:"/my-visa-application",
+        element:<MyVisaApplications></MyVisaApplications>
+      },
+      {
+        path:"/register",
+        element:<Register></Register>
+      },
       {
         path:"/login",
         element:<Login></Login>

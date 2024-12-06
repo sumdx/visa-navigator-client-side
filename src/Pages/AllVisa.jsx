@@ -1,7 +1,6 @@
 import React from 'react';
 
-const PrivateRoute = () => {
-    
+const AllVisa = () => {
     return (
         <div>
             
@@ -9,4 +8,4 @@ const PrivateRoute = () => {
     );
 };
 
-export default PrivateRoute;
+export default AllVisa;

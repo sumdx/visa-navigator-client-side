@@ -11,7 +11,7 @@ const menuItems = (
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/start-learning"} >Start Learning</NavLink>
+        <NavLink to={"/all-visas"} >All visas</NavLink>
       </li>
       
       <li>
@@ -20,15 +20,20 @@ const menuItems = (
       {
         user && <>
         <li>
-        <NavLink to={"/tutorials"}>Tutorials</NavLink>
-      </li> <li>
-        <NavLink to={"/my-profile"}>My Profile</NavLink>
-      </li> </> 
+        <NavLink to={"/add-visa"}>Add Visa</NavLink>
+      </li> 
+      <li>
+        <NavLink to={"/my-added-visa"}>My Added Visa</NavLink>
+      </li> 
+      <li>
+        <NavLink to={"/my-visa-application"}>My Visa Application</NavLink>
+      </li> 
+      </> 
       }
     </>
 )
   return (
-    <div>
+    <div className="container mx-auto">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
