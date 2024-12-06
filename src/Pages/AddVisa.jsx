@@ -1,7 +1,8 @@
 import React from "react";
+import Swal from 'sweetalert2'
 
 const AddVisa = () => {
-
+    const userEmail ="sumdas44@biraz.com"
     const handleAddVisaSubmit =(e) =>{
         e.preventDefault();
         const form = e.target;
@@ -16,14 +17,45 @@ const AddVisa = () => {
         const applicationMethod = form.applicationMethod.value;
         const validity = form.validity.value;
         const fees = form.fees.value;
+        const email = form.userEmail.value;
         const ageRestriction = form.ageRestriction.value;
-        
-        const newVisa = {countryName, countryImage, description, processingTime, visaType, applicationMethod, validity, fees, ageRestriction,requiredDocuments}
+        console.log(email)
+        const newVisa = {countryName, countryImage, description, processingTime, visaType, applicationMethod, validity, fees, ageRestriction,requiredDocuments,email}
         if (requiredDocuments.length === 0) {
             alert("Please select at least one required document.");
             return; // Stop form submission
         }
         console.log(newVisa)
+
+        fetch("http://localhost:3000/visas",{
+
+            method : 'POST',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body:JSON.stringify(newVisa)
+
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Visa Information Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Okay'
+                  })
+                  console.log(data)
+            }else{
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Visa Information Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Okay'
+                  })
+            }
+            
+        })
     }
 
   return (
@@ -176,6 +208,23 @@ const AddVisa = () => {
                 <option>In Person</option>
               </select>
             </label>
+          </div>
+          <div>
+          <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">Your Email</span>
+              </div>
+              <input
+                type="email"
+                name="userEmail"
+                placeholder={userEmail}
+                value={userEmail}
+                className="input input-bordered w-full max-w-xs"
+                required
+                disabled
+              />
+            </label>
+            <h1>Your email will submit with he visa.</h1>
           </div>
           <button type="submit" className="btn btn-block btn-primary mt-4">Add Visa</button>
         </form>
