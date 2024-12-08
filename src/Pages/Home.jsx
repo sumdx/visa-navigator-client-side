@@ -8,8 +8,12 @@ import cover9 from "./../assets/cover9.jpg";
 import cover10 from "./../assets/cover10.jpg";
 import cover11 from "./../assets/cover11.jpg";
 import { Typewriter } from "react-simple-typewriter";
+import { useLoaderData } from "react-router-dom";
+import VisaCard from "../Components/VisaCard";
 
 const Home = () => {
+    const data = useLoaderData();
+    console.log(data);
   return (
     <div>
       <div className="w-full rounded-2xl overflow-hidden">
@@ -115,6 +119,11 @@ const Home = () => {
         </div>
       </div>
       <div>
+        <div className="container mx-auto gap-6 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {
+                data.map(visa => <VisaCard visa ={visa}></VisaCard>)
+            }
+        </div>
         {/* Call to Action Section */}
       <div className="container mx-auto rounded-lg border border-blue-600 mb-10 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16">
         <div className="container mx-auto text-center px-4">

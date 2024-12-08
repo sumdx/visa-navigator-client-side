@@ -1,7 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 
-const ApplicationCard = ({ visa }) => {
+const ApplicationCard = ({ visa, updateMyApplication, myApplications }) => {
   const {
     _id,
     countryName,
@@ -34,7 +34,7 @@ const ApplicationCard = ({ visa }) => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
-              updateMyVisas(myVisas.filter((visa) => visa._id != id));
+              updateMyApplication(myApplications.filter((visa) => visa._id != id));
               Swal.fire({
                 title: "Deleted!",
                 text: "Your file has been deleted.",
@@ -45,7 +45,7 @@ const ApplicationCard = ({ visa }) => {
       }
     });
   };
-  console.log(visa);
+
   return (
     <div>
       <div className="bg-white shadow-xl rounded-lg flex p-4 gap-6 justify-between">
