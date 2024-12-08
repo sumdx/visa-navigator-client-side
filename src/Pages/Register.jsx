@@ -8,10 +8,14 @@ import Swal from "sweetalert2";
 import { auth } from "../firebase/firebase.init";
 
 const Register = () => {
-  const { createUser, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, signInWithGoogle , user} = useContext(AuthContext);
   const [error, seterror] = useState(null);
   const navigate = useNavigate();
   const from =location.state?.from?.pathname || '/';
+  if(user){
+    return navigate("/")
+  }
+
 
   const googleSignInHandle = () =>{
     signInWithGoogle()
@@ -124,8 +128,8 @@ const Register = () => {
         </form>
         <p className="text-sm text-center mt-4">
           Don’t have an account?
-          <Link className="text-primary hover:underline " to={"/login"}>
-            Sign Up
+          <Link className="text-accent hover:underline " to={"/login"}>
+            Log In
           </Link>
         </p>
       </div>

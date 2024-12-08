@@ -1,5 +1,6 @@
 import React from 'react';
 import cover12 from './../assets/cover12.jpg' 
+import cover15 from './../assets/cover15.jpg' 
 
 const About = () => {
     return (
@@ -25,7 +26,7 @@ const About = () => {
               className="rounded-xl h-96 shadow-lg"
             />
             <img
-              src={cover12}
+              src={cover15}
               alt="About Us"
               className="rounded-xl h-96 shadow-lg bg-white"
             />

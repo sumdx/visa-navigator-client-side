@@ -6,15 +6,23 @@ import AuthProvider, { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
-    const {setUser, signInUser, signInWithGoogle} = useContext(AuthContext);
+    const {setUser, signInUser, signInWithGoogle, user} = useContext(AuthContext);
 
     const location = useLocation();
     const navigate = useNavigate();
     const from =location.state?.from?.pathname || '/';
+    if(user){
+      return navigate("/")
+    }
 
     const googleSignInHandle = () =>{
         signInWithGoogle()
         .then(result =>{
+          Swal.fire({
+            title: "success!",
+            text: "Login successfull",
+            icon: "success"
+          });
           navigate(from,{replace:true});
         })
         .catch((error) => {
@@ -82,7 +90,7 @@ const Login = () => {
           Log In
         </button>
         <button
-        onClick={signInWithGoogle}
+        onClick={googleSignInHandle}
               className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
             >
               Login With Google
@@ -90,7 +98,7 @@ const Login = () => {
       </form>
       <p className="text-sm text-center mt-4">
         Don’t have an account?
-        <Link className="text-primary hover:underline " to={"/register"}>Sign Up</Link>
+        <Link className="text-accent hover:underline " to={"/register"}>Sign Up</Link>
         
       </p>
     </div>
