@@ -63,7 +63,19 @@ const AddVisa = () => {
     }
 
   return (
-    <div className="flex items-center justify-center  bg-gray-100">
+    
+    <div>
+      <div>
+      <div className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-20">
+        <div className="container mx-auto text-center px-4">
+          <h1 className="text-5xl font-bold mb-4">About Us</h1>
+          <p className="text-lg">
+            We are dedicated to providing exceptional service and making a difference in the world.
+          </p>
+        </div>
+      </div>
+      </div>
+      <div className="flex items-center justify-center  bg-gray-100">
       <div className="w-1/2 m-10 rounded-lg bg-accent">
             <Lottie className="h-1/2" animationData={form}/>
       </div>
@@ -236,6 +248,7 @@ const AddVisa = () => {
           <button type="submit" className="btn btn-block btn-primary mt-4">Add Visa</button>
         </form>
       </div>
+    </div>
     </div>
   );
 };

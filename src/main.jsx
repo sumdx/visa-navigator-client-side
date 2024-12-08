@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/all-visas",
-        element: <PrivateRoute><AllVisa></AllVisa></PrivateRoute>,
+        element: <AllVisa></AllVisa>,
         loader :() => fetch("http://localhost:3000/visas"),
       },
       {
@@ -80,8 +80,3 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-// ReactDOM.createRoot(document.getElementById("root")).render(
-//   <React.StrictMode>
-//     <RouterProvider router={router} />
-//   </React.StrictMode>
-// );

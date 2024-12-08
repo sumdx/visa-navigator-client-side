@@ -51,10 +51,13 @@ const MyAddedVisa = () => {
   };
   return (
     <div>
-      <div className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl">
-        <h1 className="text-center text-4xl font-bold py-20">
-          Visa Details Page
-        </h1>
+      <div className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-20">
+        <div className="container mx-auto text-center px-4">
+          <h1 className="text-5xl font-bold mb-4">My Added Visas</h1>
+          <p className="text-lg">
+            All visa is added by you will show here
+          </p>
+        </div>
       </div>
 
       <div className="container mx-auto mb-10">

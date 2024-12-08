@@ -13,6 +13,9 @@ export default {
         accent: '#E73879', // Custom accent color
         neutral: '#7E1891', // Custom neutral color
       },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(190deg, rgb(0, 0, 0) 15%, rgb(0, 0, 0) 72.498%)',
+      },
 
     },
   },
