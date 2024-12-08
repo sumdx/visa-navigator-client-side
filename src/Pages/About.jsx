@@ -1,4 +1,5 @@
 import React from 'react';
+import cover12 from './../assets/cover12.jpg' 
 
 const About = () => {
     return (
@@ -17,11 +18,16 @@ const About = () => {
       <div className="container mx-auto my-16 px-6 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Image */}
-          <div className="about-image">
+          <div className="flex gap-4">
             <img
-              src="https://via.placeholder.com/600x400"
+              src={cover12}
               alt="About Us"
-              className="rounded-xl shadow-lg"
+              className="pb-4 rounded-xl h-96 shadow-lg"
+            />
+            <img
+              src={cover12}
+              alt="About Us"
+              className="rounded-xl h-96 shadow-lg bg-white"
             />
           </div>
           {/* Content */}
@@ -40,18 +46,7 @@ const About = () => {
       </div>
 
 
-      {/* Call to Action Section */}
-      <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16">
-        <div className="container mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold mb-4">Want to Know More?</h2>
-          <p className="text-lg mb-8">
-            Join us on our journey to innovate, inspire, and make a difference.
-          </p>
-          <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-gray-200 transition duration-300">
-            Contact Us
-          </button>
-        </div>
-      </div>
+      
     </div>
     );
 };
