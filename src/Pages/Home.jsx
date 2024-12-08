@@ -8,7 +8,7 @@ import cover9 from "./../assets/cover9.jpg";
 import cover10 from "./../assets/cover10.jpg";
 import cover11 from "./../assets/cover11.jpg";
 import { Typewriter } from "react-simple-typewriter";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import VisaCard from "../Components/VisaCard";
 
 const Home = () => {
@@ -72,7 +72,7 @@ const Home = () => {
               About Us
             </h2>
             <hr className="w-1/2" />
-            <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex flex-col md:flex-row items-center gap-8 border-r pr-4 pt-2 rounded-lg border-b">
               <div className="flex-1 text-center md:text-left">
                 <p className="text-4xl mb-6  text-gray-600">
                   <span className="font-semibold">
@@ -113,16 +113,25 @@ const Home = () => {
                   alt="About Us"
                   className="rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300"
                 />
+                
               </div>
+              
             </div>
           </div>
         </div>
       </div>
       <div>
+        <div className="container mx-auto text-center mt-20 my-20 text-4xl font-bold">
+            <h1>Check Our Recent Visa Published</h1>
+            <p className="text-lg font-light w-3/4 mx-auto mt-6">Our latest visa application has just been published, streamlining the process and providing more opportunities for applicants to explore new horizons. Stay tuned for updates and details on the new visa program!</p>
+        </div>
         <div className="container mx-auto gap-6 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {
                 data.map(visa => <VisaCard visa ={visa}></VisaCard>)
             }
+        </div>
+        <div className="text-center my-16"> 
+            <Link className="btn btn-primary" to={"/all-visas"}>See More</Link>
         </div>
         {/* Call to Action Section */}
       <div className="container mx-auto rounded-lg border border-blue-600 mb-10 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16">
