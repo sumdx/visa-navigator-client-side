@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from 'sweetalert2'
 import Lottie from "lottie-react";
 import form from './../assets/form.json'
+import { AuthContext } from "../Providers/AuthProvider";
 
 const AddVisa = () => {
-    const userEmail ="sumdas44@biraz.com"
+    const {user} = useContext(AuthContext);
+    const userEmail =user.email;
     const handleAddVisaSubmit =(e) =>{
         e.preventDefault();
         const form = e.target;
@@ -21,7 +23,7 @@ const AddVisa = () => {
         const fees = form.fees.value;
         const email = form.userEmail.value;
         const ageRestriction = form.ageRestriction.value;
-        console.log(email)
+        
         const newVisa = {countryName, countryImage, description, processingTime, visaType, applicationMethod, validity, fees, ageRestriction,requiredDocuments,email}
         if (requiredDocuments.length === 0) {
             alert("Please select at least one required document.");

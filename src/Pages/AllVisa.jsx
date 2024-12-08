@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import VisaCard from '../Components/VisaCard';
 
 const AllVisa = () => {
-    const [visas, updateVisas] = useState([]);
+    const newVisas = useLoaderData();
+    const [visas, updateVisas] = useState(newVisas);
+   
     useEffect(()=>{
         fetch('http://localhost:3000/visas',{
 
@@ -18,17 +22,10 @@ const AllVisa = () => {
         })
     },[])
     return (
-        <div>
+        <div className='grid grid-cols-4 container gap-10 mt-10 mx-auto'>
             {
                  visas.length>0 &&
-                 visas.map(visa =>{
-                     return <ol>
-                         <li>{visa.countryName}</li>
-                         <li>{visa.fees}</li>
-                         <li>{visa._id}</li>
-                        
-                     </ol>
-                 })
+                 visas.map(visa => <VisaCard visa ={visa}></VisaCard>)
             }
         </div>
     );
