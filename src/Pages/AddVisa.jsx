@@ -1,5 +1,7 @@
 import React from "react";
 import Swal from 'sweetalert2'
+import Lottie from "lottie-react";
+import form from './../assets/form.json'
 
 const AddVisa = () => {
     const userEmail ="sumdas44@biraz.com"
@@ -59,9 +61,12 @@ const AddVisa = () => {
     }
 
   return (
-    <div className="">
+    <div className="flex items-center justify-center  bg-gray-100">
+      <div className="w-1/2 m-10 rounded-lg bg-accent">
+            <Lottie className="h-1/2" animationData={form}/>
+      </div>
       {/* Add Visa Form */}
-      <div className="mx-auto w-full ">
+      <div className="w-1/2  bg-white shadow-lg rounded-lg p-6">
         <form onSubmit={handleAddVisaSubmit} action="" className="space-y-4">
           <div className="flex space-x-8">
             <label className="form-control w-full max-w-xs">

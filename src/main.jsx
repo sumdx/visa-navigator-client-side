@@ -17,6 +17,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Root from './Pages/Root.jsx';
+import AuthProvider from './Providers/AuthProvider.jsx';
+import PrivateRoute from './Components/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,11 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path:"/add-visa",
-        element:<AddVisa></AddVisa>
+        element:<PrivateRoute><AddVisa></AddVisa></PrivateRoute>
       },
       {
         path:"/all-visas",
-        element:<AllVisa></AllVisa>
+        element: <PrivateRoute><AllVisa></AllVisa></PrivateRoute>
       },
       {
         path:"/about",
@@ -43,11 +45,11 @@ const router = createBrowserRouter([
       
       {
         path:"/my-added-visa",
-        element:<MyAddedVisa></MyAddedVisa>
+        element: <PrivateRoute><MyAddedVisa></MyAddedVisa> </PrivateRoute>
       },
       {
         path:"/my-visa-application",
-        element:<MyVisaApplications></MyVisaApplications>
+        element:<PrivateRoute><MyVisaApplications></MyVisaApplications></PrivateRoute>
       },
       {
         path:"/register",
@@ -65,7 +67,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
 

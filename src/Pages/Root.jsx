@@ -4,9 +4,12 @@ import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer'
 const Root = () => {
     return (
-        <div>
-            <NavBar className="container mx-auto"></NavBar>
+        <div className='font-poppins bg-primaryBg flex flex-col min-h-screen'>
+            <NavBar className="container mx-auto z-20"></NavBar>
+            <div className='flex-grow'>
             <Outlet></Outlet>
+            </div>
+            
             <Footer></Footer>
         </div>
     );
