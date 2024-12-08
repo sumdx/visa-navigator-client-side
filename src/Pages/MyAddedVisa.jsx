@@ -17,9 +17,12 @@ const MyAddedVisa = () => {
       .then((res) => res.json())
       .then((data) => {
         updateMyVisas(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching visas:", error);
+        updateMyVisas([]);
       });
   }, []);
-
 
   const deleteHandle = (id) => {
     Swal.fire({
@@ -54,21 +57,27 @@ const MyAddedVisa = () => {
       <div className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-20">
         <div className="container mx-auto text-center px-4">
           <h1 className="text-5xl font-bold mb-4">My Added Visas</h1>
-          <p className="text-lg">
-            All visa is added by you will show here
-          </p>
+          <p className="text-lg">All visa is added by you will show here</p>
         </div>
       </div>
 
       <div className="container mx-auto mb-10">
         <div className="flex justify-between items-center px-4">
           <h1 className="my-4 font-semibold text-xl">Visa Added by me :</h1>
-          <h1  className="my-4 font-semibold text-xl" >Total {myVisas.length}</h1>
+          <h1 className="my-4 font-semibold text-xl">Total {myVisas.length}</h1>
         </div>
         <div className="space-y-4 container mx-auto">
-          {myVisas.map((visa) => (
-            <MyVisaCard key={visa._id} visa={visa} deleteHandle={deleteHandle}></MyVisaCard>
-          ))}
+          {Array.isArray(myVisas) && myVisas.length > 0 ? (
+            myVisas.map((visa) => (
+              <MyVisaCard
+                key={visa._id}
+                visa={visa}
+                deleteHandle={deleteHandle}
+              ></MyVisaCard>
+            ))
+          ) : (
+            <h1>No Data Found</h1>
+          )}
         </div>
       </div>
     </div>

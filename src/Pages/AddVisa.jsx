@@ -49,7 +49,7 @@ const AddVisa = () => {
                     icon: 'success',
                     confirmButtonText: 'Okay'
                   })
-                  console.log(data)
+                  form.reset();
             }else{
                 Swal.fire({
                     title: 'Success!',

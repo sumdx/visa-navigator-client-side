@@ -4,6 +4,8 @@ import registerBg from "./../assets/registerBg.jpg";
 import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
+import { auth } from "../firebase/firebase.init";
 
 const Register = () => {
   const { createUser, signInWithGoogle } = useContext(AuthContext);
@@ -31,14 +33,16 @@ const Register = () => {
     const photoUrl = e.target.photoUrl.value;
     
 
-    // const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
 
-    // if (!passwordRegex.test(password)) {
-    //   seterror(
-    //     "Password Must have an Uppercase and Lowercase letter in the password, Length must be at least 6 character"
-    //   );
-    //   return;
-    // }
+    if (!passwordRegex.test(password)) {
+      Swal.fire({
+        title: "Password Error!",
+        text: "Password Must have an Uppercase and Lowercase letter in the password, Length must be at least 6 character",
+        icon: "error"
+      });
+      return;
+    }
 
     createUser(email, password)
     .then(result =>{

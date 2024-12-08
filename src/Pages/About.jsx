@@ -22,7 +22,7 @@ const About = () => {
             <img
               src={cover12}
               alt="About Us"
-              className="pb-4 rounded-xl h-96 shadow-lg"
+              className="rounded-xl h-96 shadow-lg"
             />
             <img
               src={cover12}
@@ -34,12 +34,11 @@ const About = () => {
           <div className="about-content">
             <h2 className="text-3xl font-bold mb-4">Who We Are</h2>
             <p className="text-lg text-gray-600">
-              We are a team of passionate individuals committed to providing the best solutions for our customers. 
-              Our mission is to innovate, inspire, and make a positive impact in everything we do.
+              We are a team of passionate individuals committed to providing the best visa solutions for our customers. 
+              Our mission is to innovate, inspire, and make a positive impact in traveling we do.
             </p>
             <p className="text-lg text-gray-600 mt-4">
-              With years of experience in the industry, we have built a strong reputation for excellence, quality, 
-              and trustworthiness.
+              You can also contribute here by adding visas in the add visa page.
             </p>
           </div>
         </div>

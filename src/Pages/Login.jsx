@@ -3,6 +3,7 @@ import loginBg from "./../assets/loginBg.jpg";
 
 import { Link,NavLink, useLocation, useNavigate } from "react-router-dom";
 import AuthProvider, { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const {setUser, signInUser, signInWithGoogle} = useContext(AuthContext);
@@ -26,16 +27,17 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-       
-        const from = location.state?.from?.pathname || "/";
-
         
         signInUser(email, password)
         .then(result =>{
             navigate(from, { replace: true });
         })
         .catch((error) =>{
-            console.log(error);
+          Swal.fire({
+            title: "Error!",
+            text: "Something Went Wrong, Try Again. Please Check Email and Password",
+            icon: "error"
+          });
         })
     }   
   return (
