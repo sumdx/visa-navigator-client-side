@@ -320,12 +320,12 @@ const MyVisaCard = ({ visa, deleteHandle }) => {
                 </label>
                 <h1>Your email will submit with he visa.</h1>
               </div>
-              <button type="submit">Update Visa Details</button>
+              <button className="btn btn-accent" type="submit">Update Visa Details</button>
             </form>
             <div className="modal-action">
               <form method="dialog">
                 {/* if there is a button in form, it will close the modal */}
-                <button ref={buttonRef} className="btn">Cancel</button>
+                <button ref={buttonRef} className="btn btn-start">Cancel</button>
               </form>
             </div>
           </div>

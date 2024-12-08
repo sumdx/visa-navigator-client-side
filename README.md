@@ -15,4 +15,4 @@ It is a visa submiting platform, where poeple can get information about the visa
 - react-responsive-carousel
 - react-router-dom
 
-## Live link : https://lingo-bingo-7.web.app/
+## Live link : npm install -g firebase-tools
