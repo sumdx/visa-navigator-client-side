@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>,
-        loader :() => fetch("http://localhost:3000/home"),
+        loader :() => fetch("https://b10-a10-server-side-sumdx.vercel.app/home"),
       },
       {
         path:"/add-visa",
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       {
         path:"/all-visas",
         element: <AllVisa></AllVisa>,
-        loader :() => fetch("http://localhost:3000/visas"),
+        loader :() => fetch("https://b10-a10-server-side-sumdx.vercel.app/visas"),
       },
       {
         path:"/about",
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       {
         path:"/visas/:id",
         element:<PrivateRoute><VisaDetails></VisaDetails></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:3000/visas/${params.id}`)
+        loader: ({params})=> fetch(`https://b10-a10-server-side-sumdx.vercel.app/visas/${params.id}`)
       }
 
     ]

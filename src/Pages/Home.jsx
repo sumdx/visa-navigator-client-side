@@ -13,7 +13,7 @@ import VisaCard from "../Components/VisaCard";
 
 const Home = () => {
     const data = useLoaderData();
-    console.log(data);
+   
   return (
     <div>
       <div className="w-full rounded-2xl overflow-hidden">

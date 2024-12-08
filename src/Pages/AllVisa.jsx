@@ -9,7 +9,7 @@ const AllVisa = () => {
   const [sortedVisas, setSortedVisas] = useState(newVisas);
 
   useEffect(() => {
-    fetch("http://localhost:3000/visas", {
+    fetch("https://b10-a10-server-side-sumdx.vercel.app/visas", {
       method: "GET",
       headers: {
         "content-type": "application/json",

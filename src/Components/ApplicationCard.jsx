@@ -28,7 +28,7 @@ const ApplicationCard = ({ visa, updateMyApplication, myApplications }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/applications/${id}`, {
+        fetch(`https://b10-a10-server-side-sumdx.vercel.app/applications/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

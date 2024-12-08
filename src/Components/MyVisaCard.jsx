@@ -17,9 +17,9 @@ const MyVisaCard = ({ visa, deleteHandle }) => {
     email,
     applicationMethod,
   } = visa;
-  console.log(visa)
+ 
   const handleUpdate = (e) => {
-    console.log("VISA :", visa);
+    
     e.preventDefault();
         const form = e.target;
         const requiredDocuments = Array.from(
@@ -40,8 +40,8 @@ const MyVisaCard = ({ visa, deleteHandle }) => {
             alert("Please select at least one required document.");
             return; // Stop form submission
         }
-        console.log(updatedVisa)
-        fetch(`http://localhost:3000/visas/${_id}`,{
+       
+        fetch(`https://b10-a10-server-side-sumdx.vercel.app/visas/${_id}`,{
 
           method : 'PUT',
           headers : {
@@ -61,7 +61,7 @@ const MyVisaCard = ({ visa, deleteHandle }) => {
                     confirmButtonText: 'Okay'
                   })
                   form.reset();
-                  console.log(data)
+                 
             }else{
                 Swal.fire({
                     title: 'error!',

@@ -51,7 +51,7 @@ const VisaDetails = () => {
       email  
     };
 
-    fetch("http://localhost:3000/applications",{
+    fetch("https://b10-a10-server-side-sumdx.vercel.app/applications",{
 
         method : 'POST',
         headers : {

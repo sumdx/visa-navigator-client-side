@@ -11,7 +11,7 @@ const MyVisaApplications = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/applications?email=${encodeURIComponent(email)}`,
+      `https://b10-a10-server-side-sumdx.vercel.app/applications?email=${encodeURIComponent(email)}`,
       {
         method: "GET",
         headers: {
@@ -21,9 +21,9 @@ const MyVisaApplications = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log("Fetched data:", data); // Debug: Log fetched data
+         
         updateMyApplication(data);
-        setOriginalApplications(data); // Save the original data for resetting
+        setOriginalApplications(data); 
       });
   }, [email]);
 
@@ -31,14 +31,14 @@ const MyVisaApplications = () => {
     const search = e.target.value.toLowerCase();
     
     if (search === "") {
-      updateMyApplication(originalApplications); // Reset to original data if search is empty
+      updateMyApplication(originalApplications);
       updateData(true);
     } else {
       const filtered = originalApplications.filter((visa) =>
         visa.countryName.toLowerCase().includes(search)
       );
       if (filtered.length === 0) {
-        updateData(false); // No matching data
+        updateData(false); 
       } else {
         updateData(true);
       }
@@ -60,7 +60,7 @@ const MyVisaApplications = () => {
         <label className="input input-bordered flex items-center gap-2">
           <input
             name="search"
-            onChange={searchHandle} // Use onChange to capture changes
+            onChange={searchHandle} 
             type="text"
             className="grow"
             placeholder="Search"
@@ -88,7 +88,7 @@ const MyVisaApplications = () => {
         {myApplications.map((visa) => {
           return (
             <ApplicationCard
-              key={visa.id} // Add a unique key if `visa.id` exists
+              key={visa.id} 
               visa={visa}
               myApplications={myApplications}
               updateMyApplication={updateMyApplication}

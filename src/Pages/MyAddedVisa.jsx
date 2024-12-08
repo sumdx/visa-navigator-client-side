@@ -8,7 +8,7 @@ const MyAddedVisa = () => {
   const { user } = useContext(AuthContext);
   const email = user.email;
   useEffect(() => {
-    fetch(`http://localhost:3000/myvisas?email=${encodeURIComponent(email)}`, {
+    fetch(`https://b10-a10-server-side-sumdx.vercel.app/myvisas?email=${encodeURIComponent(email)}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -19,7 +19,7 @@ const MyAddedVisa = () => {
         updateMyVisas(data);
       })
       .catch((error) => {
-        console.error("Error fetching visas:", error);
+        
         updateMyVisas([]);
       });
   }, []);
@@ -35,7 +35,7 @@ const MyAddedVisa = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/visas/${id}`, {
+        fetch(`https://b10-a10-server-side-sumdx.vercel.app/visas/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

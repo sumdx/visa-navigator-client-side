@@ -29,9 +29,9 @@ const AddVisa = () => {
             alert("Please select at least one required document.");
             return; // Stop form submission
         }
-        console.log(newVisa)
+        
 
-        fetch("http://localhost:3000/visas",{
+        fetch("https://b10-a10-server-side-sumdx.vercel.app/visas",{
 
             method : 'POST',
             headers : {
