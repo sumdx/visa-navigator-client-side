@@ -20,6 +20,7 @@ import Root from './Pages/Root.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
 import VisaDetails from './Pages/VisaDetails.jsx';
+import ContactUs from './Pages/ContactUs.jsx';
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
         path:"/visas/:id",
         element:<PrivateRoute><VisaDetails></VisaDetails></PrivateRoute>,
         loader: ({params})=> fetch(`https://b10-a10-server-side-sumdx.vercel.app/visas/${params.id}`)
+      },
+      {
+        path:"/contact-us",
+        element: <ContactUs></ContactUs>
       }
 
     ]

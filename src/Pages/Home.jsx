@@ -15,7 +15,7 @@ const Home = () => {
     const data = useLoaderData();
    
   return (
-    <div>
+    <div >
       <div className="w-full rounded-2xl overflow-hidden">
         <Carousel
           autoPlay={true}

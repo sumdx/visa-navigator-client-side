@@ -20,8 +20,9 @@ const MyVisaApplications = () => {
       }
     )
       .then((res) => res.json())
+        console.log(res)
       .then((data) => {
-         
+         console.log(data)
         updateMyApplication(data);
         setOriginalApplications(data); 
       });
